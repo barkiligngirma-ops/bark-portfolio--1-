@@ -1,0 +1,128 @@
+.orbit-stage {
+  --orbit-radius: 126px;
+  --orbit-size: 296px;
+}
+
+@media (min-width: 640px) {
+  .orbit-stage {
+    --orbit-radius: 182px;
+    --orbit-size: 404px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .orbit-stage {
+    --orbit-radius: 220px;
+    --orbit-size: 484px;
+  }
+}
+
+@media (min-width: 1280px) {
+  .orbit-stage {
+    --orbit-radius: 244px;
+    --orbit-size: 536px;
+  }
+}
+
+.orbit-icon-button {
+  transition:
+    transform 0.2s cubic-bezier(0.16, 1, 0.3, 1),
+    border-color 0.2s cubic-bezier(0.16, 1, 0.3, 1),
+    box-shadow 0.2s cubic-bezier(0.16, 1, 0.3, 1),
+    background-color 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.orbit-icon-button:hover,
+.orbit-icon-button:focus-visible {
+  transform: scale(1.12);
+}
+
+.orbit-tooltip {
+  opacity: 0;
+  transform: translate(-50%, 6px);
+  transition:
+    opacity 0.18s cubic-bezier(0.16, 1, 0.3, 1),
+    transform 0.18s cubic-bezier(0.16, 1, 0.3, 1);
+  pointer-events: none;
+}
+
+.orbit-icon-anchor:hover .orbit-tooltip,
+.orbit-icon-anchor:focus-within .orbit-tooltip {
+  opacity: 1;
+  transform: translate(-50%, 0);
+}
+
+.skill-card {
+  --mx: -999px;
+  --my: -999px;
+  --rx: 0deg;
+  --ry: 0deg;
+  --ty: 0px;
+  --scale: 1;
+  transform: perspective(900px) translateY(var(--ty)) rotateX(var(--rx)) rotateY(var(--ry)) scale(var(--scale));
+  transform-style: preserve-3d;
+  transition:
+    transform 0.22s cubic-bezier(0.16, 1, 0.3, 1),
+    border-color 0.2s cubic-bezier(0.16, 1, 0.3, 1),
+    box-shadow 0.22s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.skill-card[data-active-tilt="true"] {
+  transition:
+    transform 0.08s ease-out,
+    border-color 0.2s cubic-bezier(0.16, 1, 0.3, 1),
+    box-shadow 0.22s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.skill-card-border-glow {
+  padding: 1.5px;
+  background: radial-gradient(
+    220px circle at var(--mx) var(--my),
+    var(--skill-accent, #38bdf8),
+    rgba(56, 189, 248, 0.28) 42%,
+    transparent 72%
+  );
+  -webkit-mask:
+    linear-gradient(#fff 0 0) content-box,
+    linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask:
+    linear-gradient(#fff 0 0) content-box,
+    linear-gradient(#fff 0 0);
+  mask-composite: exclude;
+  opacity: 0;
+  transition: opacity 0.22s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.skills-grid:hover .skill-card-border-glow {
+  opacity: 0.95;
+}
+
+.skill-card-spotlight {
+  background: radial-gradient(
+    260px circle at var(--mx) var(--my),
+    color-mix(in srgb, var(--skill-accent, #38bdf8) 18%, transparent),
+    transparent 72%
+  );
+  opacity: 0;
+  transition: opacity 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.skill-card:hover .skill-card-spotlight {
+  opacity: 1;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .orbit-icon-button,
+  .orbit-tooltip,
+  .background-fallback-layer,
+  .skill-card,
+  .skill-card-border-glow,
+  .skill-card-spotlight {
+    transition: none;
+  }
+
+  .skill-card {
+    transform: none !important;
+  }
+}

@@ -1,0 +1,84 @@
+@import "tailwindcss";
+@custom-variant dark (&:where(.dark, .dark *));
+
+@theme {
+  --font-display: "Bricolage Grotesque", ui-sans-serif, system-ui, sans-serif;
+  --font-sans: "Plus Jakarta Sans", ui-sans-serif, system-ui, sans-serif;
+}
+
+:root {
+  --bark-bg-abyss: #eef4ff;
+  --bark-bg-navy: #e0ecff;
+  --bark-surface: rgba(255, 255, 255, 0.84);
+  --bark-border: rgba(37, 99, 235, 0.22);
+  --bark-electric: #2563eb;
+  --bark-sky: #0284c7;
+  --bark-text-primary: #0f172a;
+  --bark-text-secondary: #334155;
+  --bark-text-muted: #475569;
+  color-scheme: light;
+}
+
+.dark {
+  --bark-bg-abyss: #020817;
+  --bark-bg-navy: #05122b;
+  --bark-surface: rgba(8, 22, 52, 0.62);
+  --bark-border: rgba(56, 189, 248, 0.22);
+  --bark-electric: #2563eb;
+  --bark-sky: #38bdf8;
+  --bark-text-primary: #f8fafc;
+  --bark-text-secondary: #cbd5e1;
+  --bark-text-muted: #94a3b8;
+  color-scheme: dark;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  max-width: 100%;
+  min-height: 100%;
+  background-color: var(--bark-bg-abyss);
+  color: var(--bark-text-primary);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: clip;
+  scroll-behavior: smooth;
+  transition: background-color 0.25s ease, color 0.25s ease;
+}
+
+#root {
+  position: relative;
+  width: 100%;
+  max-width: 100%;
+  min-height: 100vh;
+  overflow-x: clip;
+  isolation: isolate;
+}
+
+.font-display {
+  font-family: var(--font-display);
+}
+
+.text-balance {
+  text-wrap: balance;
+}
+
+button:focus-visible,
+a:focus-visible {
+  outline: 2px solid var(--bark-sky);
+  outline-offset: 3px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  html,
+  body {
+    transition: none;
+  }
+}

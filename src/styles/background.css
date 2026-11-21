@@ -1,0 +1,104 @@
+.background-fallback-layer {
+  position: fixed;
+  inset: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: -30;
+  pointer-events: none;
+  background-color: #eef4ff;
+  background-image:
+    radial-gradient(65% 55% at 74% 38%, rgba(59, 130, 246, 0.2) 0%, rgba(147, 197, 253, 0.14) 48%, transparent 75%),
+    radial-gradient(50% 45% at 22% 76%, rgba(14, 165, 233, 0.14) 0%, transparent 70%),
+    linear-gradient(155deg, #f8fafc 0%, #e8f1ff 50%, #dbeafe 100%);
+  transition: opacity 0.5s ease;
+}
+
+.dark .background-fallback-layer {
+  background-color: #020817;
+  background-image:
+    radial-gradient(65% 55% at 74% 38%, rgba(37, 99, 235, 0.28) 0%, rgba(15, 42, 98, 0.12) 48%, transparent 75%),
+    radial-gradient(50% 45% at 22% 76%, rgba(56, 189, 248, 0.16) 0%, transparent 70%),
+    linear-gradient(155deg, #020612 0%, #041029 48%, #07193d 100%);
+}
+
+.video-background-layer {
+  position: fixed;
+  inset: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: -20;
+  pointer-events: none;
+  overflow: hidden;
+  user-select: none;
+}
+
+.video-background-element {
+  position: fixed;
+  inset: 0;
+  width: 100vw;
+  height: 100vh;
+  object-fit: cover;
+  object-position: center;
+  pointer-events: none;
+  border: 0;
+  outline: 0;
+  transform: translateZ(0);
+}
+
+.background-overlay-layer {
+  position: fixed;
+  inset: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: -10;
+  pointer-events: none;
+}
+
+.background-overlay-scrim {
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(
+      90deg,
+      rgba(244, 248, 255, 0.9) 0%,
+      rgba(235, 244, 255, 0.82) 45%,
+      rgba(224, 238, 255, 0.72) 100%
+    ),
+    linear-gradient(
+      180deg,
+      rgba(248, 250, 252, 0.65) 0%,
+      rgba(241, 245, 249, 0.45) 50%,
+      rgba(226, 238, 255, 0.78) 100%
+    );
+  transition: background 0.3s ease;
+}
+
+.dark .background-overlay-scrim {
+  background:
+    linear-gradient(
+      90deg,
+      rgba(2, 8, 23, 0.78) 0%,
+      rgba(3, 11, 30, 0.62) 45%,
+      rgba(4, 15, 40, 0.36) 100%
+    ),
+    linear-gradient(
+      180deg,
+      rgba(2, 8, 23, 0.45) 0%,
+      rgba(2, 8, 23, 0.18) 50%,
+      rgba(2, 8, 23, 0.62) 100%
+    );
+}
+
+.background-overlay-glow {
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(46% 46% at 72% 48%, rgba(37, 99, 235, 0.1) 0%, transparent 72%),
+    radial-gradient(36% 36% at 18% 28%, rgba(14, 165, 233, 0.1) 0%, transparent 70%);
+}
+
+.dark .background-overlay-glow {
+  background:
+    radial-gradient(46% 46% at 72% 48%, rgba(56, 189, 248, 0.14) 0%, transparent 72%),
+    radial-gradient(36% 36% at 18% 28%, rgba(37, 99, 235, 0.14) 0%, transparent 70%);
+}
